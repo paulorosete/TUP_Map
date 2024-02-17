@@ -1,0 +1,79 @@
+const canvas = document.querySelector('canvas')
+const c = canvas.getContext('2d')
+
+canvas.width = 12000
+canvas.height = 12000
+
+c.fillStyle = 'black'
+c.fillRect(0,0, canvas.width, canvas.height)
+
+const image = new Image()
+image.src = './img/FinalMap.png'
+
+const playerImage = new Image()
+playerImage.src = './img/playerDown.png'
+
+image.onload = () => {
+    c.drawImage(image, -300, 500)
+    c.drawImage(
+        playerImage, 
+        0,
+        0,
+        playerImage.width / 4,
+        playerImage.height,
+        7550 - (playerImage.width / 8) / 2, 
+        11000 - playerImage.height / 2,
+        playerImage.width / 4,
+        playerImage.height
+    )
+}
+
+function animate() {
+    window.requestAnimationFrame(animate)
+    
+}
+
+let lastKey = ''
+window.addEventListener('keydown', (e) => { 
+    switch (e.key) {
+      case'w':
+        keys.w.pressed = true
+        lastKey = 'w'
+        break
+
+        case'a':
+        keys.a.pressed = true
+        lastKey = 'a'
+        break
+
+        case's':
+        keys.s.pressed = true
+        lastKey = 's'
+        break
+
+        case'd':
+        keys.d.pressed = true
+        lastKey = 'd'
+        break
+    }
+})
+
+window.addEventListener('keyup', (e) => { 
+    switch (e.key) {
+      case'w':
+        keys.w.pressed = false
+        break
+
+        case'a':
+        keys.a.pressed = false
+        break
+
+        case's':
+        keys.s.pressed = false
+        break
+
+        case'd':
+        keys.d.pressed = false
+        break
+    }
+})
