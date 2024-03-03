@@ -1,17 +1,73 @@
 <style>
-    body{
-        background-color: black;
+    body {
+      background-color: black;
     }
-    </style>
-    <div style="display: inline-block; position: relative;">
-        <div
-        id="overlappingDiv"
-         style="background-color: white; position: absolute;
-        top: 0; right: 0; bottom:0; left: 0; opacity: 0; pointer-events: none;"></div>
-        <canvas></canvas>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+    #percentage {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      padding: 10px;
+      font-size: 20px;
+      border: 1px solid black;
+      width: 50px; /* Adjust as needed */
+      text-align: center;
+      background-color: #f8f9fa; /* light gray */
+    }
+  
+    .disaster {
+      position: fixed;
+      padding: 10px;
+      font-size: 20px;
+      border: 1px solid black;
+      width: 170px; /* Adjust as needed */
+      text-align: center;
+      background-color: #f8f9fa; /* light gray */
+      margin-bottom: 2100px;
+      margin-right: 2500px;
+    }
+  
+    #earthquake {
+      bottom: 10px;
+      right: 100px;
+    }
+  
+    #flood {
+      bottom: 10px;
+      right: 280px;
+    }
+  
+    #fire {
+      bottom: 10px;
+      right: 460px;
+    }
+  </style>
+  <div style="display: inline-block; position: relative">
+    <div
+      id="overlappingDiv"
+      style="
+        background-color: white;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+      "
+    ></div>
+    <canvas></canvas>
+  </div>
+  
+  <div id="earthquake" class="disaster">
+    Earthquake: <span class="percentage">0%</span>
+  </div>
+  <div id="flood" class="disaster">Flood: <span class="percentage">0%</span></div>
+  <div id="fire" class="disaster">
+    Fire Outbreak: <span class="percentage">0%</span>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="data/battleZones.js"> </script>
     <script src="data/battleZones2.js"> </script>
     <script src="data/battleZones3.js"> </script>

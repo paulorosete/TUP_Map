@@ -2,40 +2,24 @@ const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 console.log(battleZonesData)
 
-//console.log('testing') 
+
 
 canvas.width = 7450
 canvas.height = 10000
 
-// canvas.width = 3450
-// canvas.height = 3800
 
-// c.fillStyle = 'white'
-// c.fillRect(0,0, canvas.width, canvas.height)
+// canvas.width = 7450
+// canvas.height = 6000
+
+
+
 
 const collisionsMap =[]
 for (let i=0; i < collisions.length; i += 120){
     collisionsMap.push(collisions.slice(i, 120 + i))
 }
 
-// const battleZonesMap =[]
-// for (let i=0; i < battleZonesData.length; i += 120){
-//     battleZonesMap.push(battleZonesData.slice(i, 120 + i))
-    
-// }
-// //bz2
-// const battleZonesMap2 =[]
-// for (let i=0; i < battleZonesData.length; i += 120){
-//     battleZonesMap2.push(battleZonesData2.slice(i, 120 + i))
-    
-// }
-// //bz3
-// const battleZonesMap3 =[]
-// for (let i=0; i < battleZonesData.length; i += 120){
-//     battleZonesMap3.push(battleZonesData3.slice(i, 120 + i))
-    
-// }
-// console.log(battleZonesMap)
+
 
 function generateBattleZoneMap(data) {
     const battleZonesMap = [];
@@ -94,53 +78,7 @@ collisionsMap.forEach((row, i) => {
     })
 })
 
-// const battleZones = []
 
-// battleZonesMap.forEach((row, i) => {
-//     row.forEach((symbol, j)=> {
-//         if (symbol === 20904)
-//         battleZones.push(
-//             new Boundary({
-//                 position:{
-//                     x:j * Boundary.width + offset.x,
-//                     y:i * Boundary.height + offset.y
-            
-//         }}))
-//     })
-// })
-// //battle2
-// const battleZones2 = []
-
-// battleZonesMap2.forEach((row, i) => {
-//     row.forEach((symbol, j)=> {
-//         if (symbol === 20904)
-//         battleZones2.push(
-//             new Boundary({
-//                 position:{
-//                     x:j * Boundary.width + offset.x,
-//                     y:i * Boundary.height + offset.y
-            
-//         }}))
-//     })
-// })
-
-// //battle3
-// const battleZones3 = []
-
-// battleZonesMap3.forEach((row, i) => {
-//     row.forEach((symbol, j)=> {
-//         if (symbol === 20904)
-//         battleZones3.push(
-//             new Boundary({
-//                 position:{
-//                     x:j * Boundary.width + offset.x,
-//                     y:i * Boundary.height + offset.y
-            
-//         }}))
-//     })
-// })
-
-// console.log(battleZones)
 
 function generateBattleZones(battleZonesMap) {
     const battleZones = [];
@@ -759,157 +697,7 @@ function animate(){
     let moving = true
     player.moving = false
 
-//      if (battle.initiated) return
 
-//     //battlezones
-//     if(keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed){
-         
-
-//         for (let i = 0; i < battleZones.length; i++) {
-          
-//            const battleZone = battleZones[i]
-//           // const overlappingArea = (Math.min(player.position.x + player.width,
-//           //     infos.width) - Math.max(player.position.x, infos.position.x)) *
-//           //     (Math.min(player.position.y + player.height, infos.position.y + infos.height)
-//           //     - Math.max(player.position.y, infos.position.y))
-//           if (
-//               rectangularCollision({
-//                   rectangle1: player,
-//                   rectangle2: battleZone
-//               }) //&& 
-//               //overlappingArea>(player.width * player.height) /2
-//           ) {
-//               console.log('activate battle')
-//               //deactivate
-//               window.cancelAnimationFrame(animationId)
-//               battle.initiated = true
-//               gsap.to('#overlappingDiv', {
-//                 opacity:1,
-//                 yoyo: true,
-                
-//                 onComplete(){
-//                     gsap.to('#overlappingDiv', {
-//                         opacity:1,
-                        
-//                         onComplete(){
-//                             animateBattle()
-//                             gsap.to('#overlappingDiv', {
-//                                 opacity:0,
-                                
-                                    
-//                             })
-//                         }
-//                     })
-//                     //activate
-                    
-//                 }
-                
-//             })
-//               break
-//           }
-//       }
-
-//   }
-
-//   //battle2
-//   if(keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed){
-         
-
-//     for (let i = 0; i < battleZones2.length; i++) {
-      
-//        const battleZone2 = battleZones2[i]
-//       // const overlappingArea = (Math.min(player.position.x + player.width,
-//       //     infos.width) - Math.max(player.position.x, infos.position.x)) *
-//       //     (Math.min(player.position.y + player.height, infos.position.y + infos.height)
-//       //     - Math.max(player.position.y, infos.position.y))
-//       if (
-//           rectangularCollision({
-//               rectangle1: player,
-//               rectangle2: battleZone2
-//           }) //&& 
-//           //overlappingArea>(player.width * player.height) /2
-//       ) {
-//           console.log('activate battle')
-//           //deactivate
-//           window.cancelAnimationFrame(animationId)
-//           battle.initiated = true
-//           gsap.to('#overlappingDiv', {
-//             opacity:1,
-//             yoyo: true,
-            
-//             onComplete(){
-//                 gsap.to('#overlappingDiv', {
-//                     opacity:1,
-                    
-//                     onComplete(){
-//                         animateBattle2()
-//                         gsap.to('#overlappingDiv', {
-//                             opacity:0,
-                            
-                                
-//                         })
-//                     }
-//                 })
-//                 //activate
-                
-//             }
-            
-//         })
-//           break
-//       }
-//   }
-
-// }
-
-// //bz3
-// if(keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed){
-         
-
-//     for (let i = 0; i < battleZones3.length; i++) {
-      
-//        const battleZone3 = battleZones3[i]
-//       // const overlappingArea = (Math.min(player.position.x + player.width,
-//       //     infos.width) - Math.max(player.position.x, infos.position.x)) *
-//       //     (Math.min(player.position.y + player.height, infos.position.y + infos.height)
-//       //     - Math.max(player.position.y, infos.position.y))
-//       if (
-//           rectangularCollision({
-//               rectangle1: player,
-//               rectangle2: battleZone3
-//           }) //&& 
-//           //overlappingArea>(player.width * player.height) /2
-//       ) {
-//           console.log('activate battle')
-//           //deactivate
-//           window.cancelAnimationFrame(animationId)
-//           battle.initiated = true
-//           gsap.to('#overlappingDiv', {
-//             opacity:1,
-//             yoyo: true,
-            
-//             onComplete(){
-//                 gsap.to('#overlappingDiv', {
-//                     opacity:1,
-                    
-//                     onComplete(){
-//                         animateBattle3()
-//                         gsap.to('#overlappingDiv', {
-//                             opacity:0,
-                            
-                                
-//                         })
-//                     }
-//                 })
-//                 //activate
-                
-//             }
-            
-//         })
-//           break
-//       }
-//   }
-
-// }
 
 function handleBattles(battleZones, animateBattleFunction) {
     if (battle.initiated) return;
@@ -1404,202 +1192,393 @@ const battleBackground28 = new Sprite({
     image: battleBackgroundImage28
 })
 
-function animateBattle(){
-    window.requestAnimationFrame(animateBattle)
-    battleBackground.draw()
-}
+// function animateBattle(){
+//     window.requestAnimationFrame(animateBattle)
+//     battleBackground.draw()
+// }
+
+function animateBattle() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 //b2
-function animateBattle2(){
-    window.requestAnimationFrame(animateBattle2)
-    battleBackground2.draw()
-}
+function animateBattle2() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground2.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
 //b3
-function animateBattle3(){
-    window.requestAnimationFrame(animateBattle3)
-    battleBackground3.draw()
-}
+function animateBattle3() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground3.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle4(){
-    window.requestAnimationFrame(animateBattle4)
-    battleBackground4.draw()
-}
+  function animateBattle4() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground4.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle5(){
-    window.requestAnimationFrame(animateBattle5)
-    battleBackground5.draw()
-}
+  function animateBattle5() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground5.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle6(){
-    window.requestAnimationFrame(animateBattle6)
-    battleBackground6.draw()
-}
+  function animateBattle6() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground6.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle7(){
-    window.requestAnimationFrame(animateBattle7)
-    battleBackground7.draw()
-}
+  function animateBattle7() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground7.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle8(){
-    window.requestAnimationFrame(animateBattle8)
-    battleBackground8.draw()
-}
+  function animateBattle8() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground8.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle9(){
-    window.requestAnimationFrame(animateBattle9)
-    battleBackground9.draw()
-}
+  function animateBattle9() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground9.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle10(){
-    window.requestAnimationFrame(animateBattle10)
-    battleBackground10.draw()
-}
+  function animateBattle10() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground10.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle11(){
-    window.requestAnimationFrame(animateBattle11)
-    battleBackground11.draw()
-}
+  function animateBattle11() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground11.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle12(){
-    window.requestAnimationFrame(animateBattle12)
-    battleBackground12.draw()
-}
+  function animateBattle12() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground12.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle13(){
-    window.requestAnimationFrame(animateBattle13)
-    battleBackground13.draw()
-}
+  function animateBattle13() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground13.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle14(){
-    window.requestAnimationFrame(animateBattle14)
-    battleBackground14.draw()
-}
+  function animateBattle14() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground14.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle15(){
-    window.requestAnimationFrame(animateBattle15)
-    battleBackground15.draw()
-}
+  function animateBattle15() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground15.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle16(){
-    window.requestAnimationFrame(animateBattle16)
-    battleBackground16.draw()
-}
+  function animateBattle16() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground16.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle17(){
-    window.requestAnimationFrame(animateBattle17)
-    battleBackground17.draw()
-}
+  function animateBattle17() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground17.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle18(){
-    window.requestAnimationFrame(animateBattle18)
-    battleBackground18.draw()
-}
+  function animateBattle18() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground18.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle19(){
-    window.requestAnimationFrame(animateBattle19)
-    battleBackground19.draw()
-}
+  function animateBattle19() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground19.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle20(){
-    window.requestAnimationFrame(animateBattle20)
-    battleBackground20.draw()
-}
+  function animateBattle20() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground20.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle21(){
-    window.requestAnimationFrame(animateBattle21)
-    battleBackground21.draw()
-}
+  function animateBattle21() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground21.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle22(){
-    window.requestAnimationFrame(animateBattle22)
-    battleBackground22.draw()
-}
+  function animateBattle22() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground22.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle23(){
-    window.requestAnimationFrame(animateBattle23)
-    battleBackground23.draw()
-}
+  function animateBattle23() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground23.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
+  function animateBattle24() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground24.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle24(){
-    window.requestAnimationFrame(animateBattle24)
-    battleBackground24.draw()
-}
+  function animateBattle25() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground25.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle25(){
-    window.requestAnimationFrame(animateBattle25)
-    battleBackground25.draw()
-}
+  function animateBattle26() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground26.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle26(){
-    window.requestAnimationFrame(animateBattle26)
-    battleBackground26.draw()
-}
+  function animateBattle27() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground27.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle27(){
-    window.requestAnimationFrame(animateBattle27)
-    battleBackground27.draw()
-}
+  function animateBattle28() {
+    var newWindow = window.open("", "_blank");
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground28.image.src;
+  
+    img.style.width = "100%";
+    img.style.height = "100%";
+  
+    newWindow.document.body.appendChild(img);
+  }
 
-function animateBattle28(){
-    window.requestAnimationFrame(animateBattle28)
-    battleBackground28.draw()
-}
-
-let lastKey = ''
-window.addEventListener('keydown', (e) => { 
-    switch (e.key) {
-      case'w':
-        keys.w.pressed = true
-        lastKey = 'w'
-        break
-
-        case'a':
-        keys.a.pressed = true
-        lastKey = 'a'
-        break
-
-        case's':
-        keys.s.pressed = true
-        lastKey = 's'
-        break
-
-        case'd':
-        keys.d.pressed = true
-        lastKey = 'd'
-        break
+  let percentages = {
+    earthquake: 0,
+    flood: 0,
+    fire: 0,
+  };
+  
+  function updatePercentageRandomly(disaster) {
+    percentages[disaster] += (Math.floor(Math.random() * 3) - 1) * 3; // Randomly increment or decrement by 0, 1, or -1
+    percentages[disaster] = Math.max(0, Math.min(100, percentages[disaster])); // Ensure percentage stays between 0 and 100
+    document
+      .getElementById(disaster)
+      .getElementsByClassName("percentage")[0].textContent =
+      percentages[disaster] + "%"; // Update displayed percentage
+  }
+  
+  function updateAllPercentagesRandomly() {
+    Object.keys(percentages).forEach((disaster) => {
+      updatePercentageRandomly(disaster);
+    });
+  }
+  
+  window.addEventListener("keydown", (e) => {
+    // Only update percentages when a WASD key is pressed
+    if (["w", "a", "s", "d"].includes(e.key)) {
+      updateAllPercentagesRandomly();
     }
-})
-
-window.addEventListener('keyup', (e) => { 
+  });
+  
+  let lastKey = "";
+  window.addEventListener("keydown", (e) => {
     switch (e.key) {
-      case'w':
-        keys.w.pressed = false
-        break
-
-        case'a':
-        keys.a.pressed = false
-        break
-
-        case's':
-        keys.s.pressed = false
-        break
-
-        case'd':
-        keys.d.pressed = false
-        break
+      case "w":
+        keys.w.pressed = true;
+        lastKey = "w";
+        break;
+  
+      case "a":
+        keys.a.pressed = true;
+        lastKey = "a";
+        break;
+  
+      case "s":
+        keys.s.pressed = true;
+        lastKey = "s";
+        break;
+  
+      case "d":
+        keys.d.pressed = true;
+        lastKey = "d";
+        break;
     }
-})
+  
+    updateAllPercentagesRandomly();
+  });
+  
+  window.addEventListener("keyup", (e) => {
+    switch (e.key) {
+      case "w":
+        keys.w.pressed = false;
+        break;
+  
+      case "a":
+        keys.a.pressed = false;
+        break;
+  
+      case "s":
+        keys.s.pressed = false;
+        break;
+  
+      case "d":
+        keys.d.pressed = false;
+        break;
+    }
+  });
 
-// canvas.width = 7450
-// canvas.height = 10000
-
-// c.fillStyle = 'black'
-// c.fillRect(0,0, canvas.width, canvas.height)
-
-// const image = new Image()
-// image.src = './img/TUPTmap.png'
-
-// const playerImage = new Image()
-// playerImage.src = './img/playerDown.png'
 
 
