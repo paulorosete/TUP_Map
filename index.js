@@ -1,6 +1,6 @@
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
-console.log(battleZonesData)
+console.log(bzData)
 
 
 
@@ -8,8 +8,7 @@ canvas.width = 7450
 canvas.height = 10000
 
 
-// canvas.width = 7450
-// canvas.height = 6000
+
 
 
 
@@ -18,6 +17,12 @@ const collisionsMap =[]
 for (let i=0; i < collisions.length; i += 120){
     collisionsMap.push(collisions.slice(i, 120 + i))
 }
+
+const bzMap =[]
+for (let i=0; i < bzData.length; i += 120){
+    bzMap.push(bzData.slice(i, 120 + i))
+}
+
 
 
 
@@ -28,6 +33,8 @@ function generateBattleZoneMap(data) {
     }
     return battleZonesMap;
 }
+
+
 
 const battleZonesMap = generateBattleZoneMap(battleZonesData);
 const battleZonesMap2 = generateBattleZoneMap(battleZonesData2);
@@ -57,7 +64,10 @@ const battleZonesMap25 = generateBattleZoneMap(battleZonesData25);
 const battleZonesMap26 = generateBattleZoneMap(battleZonesData26);
 const battleZonesMap27 = generateBattleZoneMap(battleZonesData27);
 const battleZonesMap28 = generateBattleZoneMap(battleZonesData28);
+const battleZonesMap29 = generateBattleZoneMap(battleZonesData29);
 console.log(battleZonesMap);
+
+
 
 const boundaries = []
 const offset = {
@@ -77,6 +87,23 @@ collisionsMap.forEach((row, i) => {
         }}))
     })
 })
+
+const bzs = []
+
+bzMap.forEach((row, i) => {
+    row.forEach((symbol, j)=> {
+        if (symbol === 20904)
+        bzs.push(
+            new Boundary({
+                position:{
+                    x:j * Boundary.width + offset.x,
+                    y:i * Boundary.height + offset.y
+            
+        }}))
+    })
+})
+
+console.log(bzs)
 
 
 
@@ -127,6 +154,7 @@ const battleZones25 = generateBattleZones(battleZonesMap25);
 const battleZones26 = generateBattleZones(battleZonesMap26);
 const battleZones27 = generateBattleZones(battleZonesMap27);
 const battleZones28 = generateBattleZones(battleZonesMap28);
+const battleZones29 = generateBattleZones(battleZonesMap29);
 console.log(battleZones);
 
 const image = new Image()
@@ -145,7 +173,7 @@ const playerRightImage = new Image()
 playerRightImage.src = './img/playerRight.png'
 
 const foregroundImage = new Image()
-foregroundImage.src = './img/foregroundObjects.png'
+foregroundImage.src = './img/foregroundObjects2.png'
 
 const charImage = new Image()
 charImage.src = './img/char1.png'
@@ -231,6 +259,45 @@ char27Image.src = './img/char27.png'
 const chargImage = new Image()
 chargImage.src = './img/charg.png'
 
+//building indications
+const adminImage = new Image()
+adminImage.src = './img/admin.png'
+
+const clinicImage = new Image()
+clinicImage.src = './img/clinic.png'
+
+const itImage = new Image()
+itImage.src = './img/it.png'
+
+const basdImage = new Image()
+basdImage.src = './img/BASD.png'
+
+const mechImage = new Image()
+mechImage.src = './img/mech.png'
+
+const beegImage = new Image()
+beegImage.src = './img/beeg.png'
+
+const multiImage = new Image()
+multiImage.src = './img/multi.png'
+
+const libImage = new Image()
+libImage.src = './img/lib.png'
+
+const gymImage = new Image()
+gymImage.src = './img/gym.png'
+
+const dormiImage = new Image()
+dormiImage.src = './img/dormi.png'
+
+const courtImage = new Image()
+courtImage.src = './img/court.png'
+
+const scImage = new Image()
+scImage.src = './img/sc.png'
+
+const signImage = new Image()
+signImage.src = './img/sign.png'
 
 const player = new Sprite({
     position:{
@@ -504,6 +571,125 @@ const char27 = new Sprite({
     
 })
 
+//building ind
+const admin = new Sprite({
+    position:{
+        x: 2435,
+        y: 4375
+    },
+    image: adminImage,
+    
+})
+
+const clinic = new Sprite({
+    position:{
+        x: 3093,
+        y: 4675
+    },
+    image: clinicImage,
+    
+})
+
+const it = new Sprite({
+    position:{
+        x: 1245,
+        y: 4350
+    },
+    image: itImage,
+    
+})
+
+const basd = new Sprite({
+    position:{
+        x: 3325,
+        y: 4150
+    },
+    image: basdImage,
+    
+})
+
+const mech = new Sprite({
+    position:{
+        x: 1421,
+        y: 3990 
+    },
+    image: mechImage,
+    
+})
+
+const beeg = new Sprite({
+    position:{
+        x: 880,
+        y: 3000 
+    },
+    image: beegImage,
+    
+})
+
+const multi = new Sprite({
+    position:{
+        x: 2165,
+        y: 2578 
+    },
+    image: multiImage,
+    
+})
+
+const lib = new Sprite({
+    position:{
+        x: 2010,
+        y: 1750 
+    },
+    image: libImage,
+    
+})
+
+const gym = new Sprite({
+    position:{
+        x: 3730,
+        y: 1570 
+    },
+    image: gymImage,
+    
+})
+
+const dormi = new Sprite({
+    position:{
+        x: 2535,
+        y: 930 
+    },
+    image: dormiImage,
+    
+})
+
+const court = new Sprite({
+    position:{
+        x: 2700,
+        y: 4080 
+    },
+    image: courtImage,
+    
+})
+
+const sc = new Sprite({
+    position:{
+        x: 3662,
+        y: 3000 
+    },
+    image: scImage,
+    
+})
+
+const sign = new Sprite({
+    position:{
+        x: 3719,
+        y: 4650 
+    },
+    image: signImage,
+    
+})
+
+
 
 
 
@@ -517,7 +703,9 @@ const background = new Sprite({ position: {
 
 const foreground = new Sprite({ position: {
     x: offset.x,
-    y: offset.y
+    y: offset.y = -120
+
+   
 },
 image:foregroundImage
 })
@@ -544,8 +732,9 @@ const movables = [background, ...boundaries, foreground, ...battleZones, ...batt
 ...battleZones5, ...battleZones6, ...battleZones7, ...battleZones8, ...battleZones9, ...battleZones10, ...battleZones11, 
 ...battleZones12, ...battleZones13, ...battleZones14, ...battleZones15, ...battleZones16, ...battleZones17, ...battleZones18, ...battleZones19, 
 ...battleZones20, ...battleZones21, ...battleZones22, ...battleZones23, ...battleZones24, ...battleZones25, ...battleZones26, 
-...battleZones27, ...battleZones28, char, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12, 
-char13, char14, char15, char16, char17, char18, char19, char20, char21, char22, char23, char24, char25, char26, char27, charg]
+...battleZones27, ...battleZones28, ...battleZones29, char, char2, char3, char4, char5, char6, char7, char8, char9, char10, char11, char12, 
+char13, char14, char15, char16, char17, char18, char19, char20, char21, char22, char23, char24, char25, char26, char27, charg, admin,
+clinic, it, basd, mech, beeg, multi, lib, gym, dormi, court, sc, ...bzs, sign]
 
 function rectangularCollision({ rectangle1, rectangle2 }) {
     return (
@@ -556,6 +745,9 @@ function rectangularCollision({ rectangle1, rectangle2 }) {
     )
 }
 
+const battlePokemon = {
+    initiated: false
+}
 
 const battle = {
     initiated: false
@@ -566,6 +758,10 @@ function animate(){
     background.draw()
     boundaries.forEach(boundary => {
         boundary.draw()
+    })
+
+    bzs.forEach(bzs => {
+        bzs.draw()
     })
 
     //bz1
@@ -661,6 +857,19 @@ function animate(){
     battleZones28.forEach(battleZone28 => {
         battleZone28.draw()
     })
+    
+    battleZones29.forEach(battleZone29 => {
+        battleZone29.draw()
+    })
+
+    basd.draw()
+    lib.draw()
+    beeg.draw()
+    gym.draw()
+    dormi.draw()
+    court.draw()
+    sc.draw()
+    sign.draw()
 
     player.draw()
     char.draw()
@@ -691,47 +900,128 @@ function animate(){
     char26.draw()
     char27.draw()
     charg.draw()
+    //building ind
     foreground.draw()
+    admin.draw()
+    clinic.draw()
+    it.draw()
+    mech.draw()
     
-
+    multi.draw()
+   
     let moving = true
     player.moving = false
 
 
 
-function handleBattles(battleZones, animateBattleFunction) {
-    if (battle.initiated) return;
+    // if (battlePokemon.initiated) return;
+    // //activate battle
+    // if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
+    //     for(let i = 0; i < bzs.length; i++){
+    //         const bz=bzs[i]
+    //         const overlappingArea=
+    //         (Math.min(
+    //             player.position.x + player.width,
+    //             bz.position.x + bz.width
+    //         )-
+    //             Math.max(player.position.x, bz.position.x))*
+    //         (Math.min(
+    //             player.position.y + player.height,
+    //             bz.position.y + bz.height
+    //         )-
+    //             Math.max(player.position.y, bz.position.y))
+    //         if (
+    //             rectangularCollision({
+    //                 rectangle1: player,
+    //                 rectangle2: bz
+    //             }) && 
+    //             overlappingArea > (player.width * player.height)/2
+    //             && Math.random() < 0.01
+    //         ) {
+    //             console.log('activate battle')
+    //             window.cancelAnimationFrame(animationId);
+    //             battlePokemon.initiated = true
+    //             gsap.to('#overlappingDiv', {
+    //                 opacity: 1,
+    //                 repeat:3,
+    //                 yoyo: true,
+    //                 duration: 0.4,
+    //                 onComplete() {
+    //                     gsap.to('#overlappingDiv', {
+    //                         opacity: 1,
+    //                         duration: 0.4,
+    //                         onComplete() {
+    //                             animateBattlePokemon()
+    //                             gsap.to('#overlappingDiv', {
+    //                                 opacity: 1,
+    //                                 duration: 0.4,
+                                    
+    //                             })
+    //                         }
+                            
+    //                     })
+    //                     //animateBattlePokemon()
+    //                 }
+    //             });
+    //             break;
+    //         }
+    //     }
+    // }
 
-    if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
-        for (let i = 0; i < battleZones.length; i++) {
-            const battleZone = battleZones[i];
-            if (rectangularCollision({
-                rectangle1: player,
-                rectangle2: battleZone
-            })) {
-                console.log('activate battle');
-                window.cancelAnimationFrame(animationId);
-                battle.initiated = true;
-                gsap.to('#overlappingDiv', {
-                    opacity: 1,
-                    yoyo: true,
-                    onComplete() {
-                        gsap.to('#overlappingDiv', {
-                            opacity: 1,
-                            onComplete() {
-                                animateBattleFunction();
-                                gsap.to('#overlappingDiv', {
-                                    opacity: 0,
-                                });
-                            }
-                        });
-                    }
-                });
-                break;
+
+    
+
+
+
+    let triggeredAnimations = {};
+
+    function handleBattles(battleZones, animateBattleFunction) {
+        // Check if the animation has already been triggered
+        if (triggeredAnimations[animateBattleFunction]) return;
+        
+        if (battle.initiated) return;
+    
+        if (keys.w.pressed || keys.a.pressed || keys.s.pressed || keys.d.pressed) {
+            for (let i = 0; i < battleZones.length; i++) {
+                const battleZone = battleZones[i];
+                if (rectangularCollision({
+                    rectangle1: player,
+                    rectangle2: battleZone
+                })) {
+                    console.log('activate battle');
+    
+                    // Set the animateBattleFunction as triggered
+                    triggeredAnimations[animateBattleFunction] = true;
+    
+                    // This is the animation to trigger the battle
+                    gsap.to('#overlappingDiv', {
+                        opacity: 1,
+                        duration: 0.4,
+                        yoyo: true,
+                        onComplete: () => {
+                            gsap.to('#overlappingDiv', {
+                                opacity: 1,
+                                onComplete: () => {
+                                    // Ensure the battle function is called
+                                    animateBattleFunction();
+    
+                                    // Ensure the overlappingDiv is hidden
+                                    gsap.to('#overlappingDiv', {
+                                        opacity: 0,
+                                        onComplete: () => {
+                                            // Reset battle initiated flag
+                                            battle.initiated = false;
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                    break;
+                }
             }
         }
     }
-}
 
 handleBattles(battleZones, animateBattle);
 handleBattles(battleZones2, animateBattle2);
@@ -761,9 +1051,11 @@ handleBattles(battleZones25, animateBattle25);
 handleBattles(battleZones26, animateBattle26);
 handleBattles(battleZones27, animateBattle27);
 handleBattles(battleZones28, animateBattle28);
+handleBattles(battleZones29, animateBattle29);
 
     // let.moving = true
     // player.moving = false
+
 
     if (keys.w.pressed && lastKey === 'w') {
         for (let i = 0; i < boundaries.length; i++) {
@@ -962,6 +1254,9 @@ battleBackgroundImage27.src = './img/Buildings/OldHospital.jpg'
 
 const battleBackgroundImage28 = new Image()
 battleBackgroundImage28.src = './img/Buildings/Parking.jpg'
+
+const battleBackgroundImage29 = new Image()
+battleBackgroundImage29.src = './img/direction.png'
 
 
 const battleBackground = new Sprite({ 
@@ -1190,6 +1485,14 @@ const battleBackground28 = new Sprite({
         y: 3500
     },
     image: battleBackgroundImage28
+})
+
+const battleBackground29 = new Sprite({ 
+    position:{
+        x: 1800,
+        y: 3500
+    },
+    image: battleBackgroundImage29
 })
 
 // function animateBattle(){
@@ -1505,6 +1808,25 @@ function animateBattle3() {
     newWindow.document.body.appendChild(img);
   }
 
+  function animateBattle29() {
+    var newWindow = window.open("", "_blank");
+    var container = newWindow.document.createElement("div"); // Create a container div
+    container.style.display = "flex"; // Use flexbox
+    container.style.justifyContent = "center"; // Center content horizontally
+    container.style.alignItems = "center"; // Center content vertically
+    container.style.width = "100%"; // Set container width to 100%
+
+    var img = newWindow.document.createElement("img");
+    img.src = battleBackground29.image.src;
+    img.style.width = "45%";
+    img.style.height = "100%";
+
+    container.appendChild(img); // Append image to container
+    newWindow.document.body.appendChild(container); // Append container to body
+}
+
+  
+
   let percentages = {
     earthquake: 0,
     flood: 0,
@@ -1533,6 +1855,21 @@ function animateBattle3() {
     }
   });
   
+  animate()
+
+  const pokemonBackgroundImage = new Image()
+  pokemonBackgroundImage.src = './img/bg.png'
+  const pokemonBackground = new Sprite({
+    position: {
+    x: 1000,
+    y: 1000
+  }, image: pokemonBackgroundImage})
+  function animateBattlePokemon(){
+    window.requestAnimationFrame(animateBattlePokemon)
+    pokemonBackground.draw()
+    console.log('animating battle')
+  }
+
   let lastKey = "";
   window.addEventListener("keydown", (e) => {
     switch (e.key) {
